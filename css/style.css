@@ -1,0 +1,40 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  background-color: #efefef;
+}
+
+.wrapper {
+  width: 80%;
+  padding: 40px;
+  margin: 20px auto;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  background-color: white;
+  font-size: 20px;
+}
+
+button {
+  display: block;
+  min-width: 200px;
+  margin: 20px auto;
+  padding: .8em 1em calc(.8em + 3px);
+  border-radius: 3px;
+  font-weight: 700;
+  color: white;
+  text-decoration: none;
+  background: rgb(57, 114, 199);
+  box-shadow: 0 -3px rgb(55, 66, 167) inset;
+  transition: 0.2s;
+}
+
+button:hover {
+  background: rgb(48, 55, 167);
+}
+
+button:active {
+  background: rgb(56, 71, 147);
+  box-shadow: 0 3px rgb(63, 71, 147) inset;
+}
