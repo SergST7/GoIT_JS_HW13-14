@@ -10,28 +10,52 @@
 </head>
 <body>
 <div class="wrapper">
-  <button>Начать тест</button>
+  <button class="start">Начать тест</button>
+  <div class="test-wrapper"></div>
 </div>
+<!--шаблон для теста -->
 <script type="text/template" id="test">
-  <h2><%-topic%></h2>
-  <ol>
-    <% data.forEach(function(item, key) { %>
-    <li class="question">
-      <%=item.question%>
-      <ul>
-        <% item.answers.forEach(function(item, i) { %>
-        <li class="answer">
-          <label>
-            <input type="checkbox" id="<%=key+1%>-<%=i+1%>">
-            <%=item%>
-          </label>
-        </li>
-        <% }); %>
-      </ul>
-    </li>
-    <% }); %>
-  </ol>
-  <button class="checkRes">Проверить результаты теста </button>
+  <div class="results">
+    <h2><%-topic%></h2>
+    <ol>
+      <% data.forEach(function(item, key) { %>
+      <li class="question">
+        <%=item.question%>
+        <ul>
+          <% item.answers.forEach(function(item, i) { %>
+          <li class="answer">
+            <label>
+              <input type="checkbox" id="<%=key+1%>-<%=i+1%>">
+              <%=item%>
+            </label>
+          </li>
+          <% }); %>
+        </ul>
+      </li>
+      <% }); %>
+    </ol>
+    <button class="checkRes">Проверить результаты теста</button>
+  </div>
+</script>
+<!--шаблон для модального окна-->
+<script type="text/template" id="modal-result">
+  <div class="overlay">
+    <div class="modal-window">
+      <% if (error) { %>
+      <h4><%=errorMsg%></h4>
+      <button class="errorOK">OK</button>
+      <% } else { %>
+      <h4><%=msg%></h4>
+      <p>Правильных ответов:
+        <span><%=correct%></span> из
+        <span><%=answersLength%></span>
+      </p>
+      <p>Не правильных ответов: <span><%=incorrect%></span></p>
+      <button class="start-modal">Пройти тест еще раз</button>
+      <button class="show-results">Посмотреть результаты</button>
+      <% } %>
+    </div>
+  </div>
 </script>
 </body>
 </html>
