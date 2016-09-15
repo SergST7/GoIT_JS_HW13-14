@@ -30,7 +30,7 @@ localStorage.setItem('test', JSON.stringify(testObj));
 
 $(function () {
 
-  try{
+  try {
     var test = localStorage.getItem('test');
     test = JSON.parse(test);
   } catch (e) {
@@ -102,9 +102,9 @@ $(function () {
     if (resultsObj.incorrect != 0) {
       resultsObj.msg = 'Тест не пройден'
     } // в случае не полных ответов тест не засчитан
-    else if($userAnswers.length < resultsObj.answersLength){
+    else if ($userAnswers.length < resultsObj.answersLength) {
       resultsObj.msg = 'Тест не пройден, ответ не полный'
-    } else{
+    } else {
       resultsObj.msg = 'Тест пройден'
     }
     showModal(resultsObj);
